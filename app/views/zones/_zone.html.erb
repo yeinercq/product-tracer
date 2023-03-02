@@ -1,0 +1,31 @@
+<div class="zone">
+  <div class="zone__header">
+    <h2 class="zone__title">
+      <%= link_to zone.name, zone_path(zone) %>
+    </h2>
+
+    <div class="zone__actions">
+      <%= button_to "Eliminar",
+                    zone_path(zone),
+                    method: :delete,
+                    class: "btn btn--light" %>
+      <%= link_to "Editar",
+                  edit_zone_path(zone),
+                  class: "btn btn--light" %>
+    </div>
+  </div>
+  <div class="zone__body">
+    <div class="row">
+      <div class="col">Codigo</div>
+      <div class="col">No. de fincas</div>
+      <div class="col">Lotes</div>
+      <div class="col">Microlotes</div>
+    </div>
+    <div class="row">
+      <div class="col"><%= zone.code %></div>
+      <div class="col">102</div>
+      <div class="col">356</div>
+      <div class="col">3860</div>
+    </div>
+  </div>
+</div>

@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+for i in 1..4
+  Zone.create!(
+    name: "Zone #{i}",
+    code: "abc-zone"
+  )
+end
+
+puts "Zones has been created."
