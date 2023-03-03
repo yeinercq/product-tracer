@@ -29,3 +29,15 @@ en:
     # prompts:
     #   defaults:
     #     age: 'Select your age'
+    placeholders:
+      zone:
+        name: Nombre de la zona
+    labels:
+      zone:
+        name: Nombre
+
+  helpers:
+    sibmit:
+      zone:
+        create: Nueva zona
+        udpate: Editar zona 

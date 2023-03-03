@@ -43,6 +43,8 @@ SimpleForm.setup do |config|
   config.input_field_error_class = 'is-invalid'
   config.input_field_valid_class = 'is-valid'
 
+  config.error_notification_tag = :div
+
 
   # vertical forms
   #
@@ -353,8 +355,27 @@ SimpleForm.setup do |config|
   end
 
 
+  # custom forms
+  #
+  # horizontal default_wrapper
+  config.wrappers :custom_horizontal_form, class: 'form--inline__group row mb-3' do |b|
+    b.use :html5
+    b.use :placeholder
+    b.optional :maxlength
+    b.optional :minlength
+    b.optional :pattern
+    b.optional :min_max
+    b.optional :readonly
+    b.use :label, class: 'visually-hidden'
+    b.wrapper :grid_wrapper, class: 'col-12' do |ba|
+      ba.use :input, class: 'form--inline__input', error_class: 'is-invalid', valid_class: 'is-valid'
+      ba.use :full_error, wrap_with: { class: 'invalid-feedback' }
+      ba.use :hint, wrap_with: { class: 'form-text' }
+    end
+  end
+
   # The default wrapper to be used by the FormBuilder.
-  config.default_wrapper = :vertical_form
+  config.default_wrapper = :custom_horizontal_form
 
   # Custom wrappers for input types. This should be a hash containing an input
   # type as key and the wrapper that will be used for all inputs with specified type.
