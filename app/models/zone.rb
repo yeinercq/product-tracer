@@ -11,6 +11,8 @@
 class Zone < ApplicationRecord
   has_many :farms
 
+  scope :ordered, -> { order(id: :desc) }
+
   validates :name, presence: true
 
   before_create :generate_code

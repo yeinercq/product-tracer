@@ -1,8 +1,11 @@
 <div class="container">
   <div class="header">
     <h1>Zonas de produccion de cafe</h1>
-    <%= link_to "Nueva zona", new_zone_path, class: "btn btn--primary" %>
+    <%= link_to "Nueva zona", new_zone_path, class: "btn btn--primary", data: { turbo_frame: dom_id(Zone.new) } %>
   </div>
 
-  <%= render @zones %>
+  <%= turbo_frame_tag Zone.new %>
+  <%= turbo_frame_tag 'zones' do %>
+    <%= render @zones %>
+  <% end %>
 </div>

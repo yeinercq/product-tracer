@@ -6,6 +6,8 @@
     <h1>Editar zona</h1>
   </div>
 
-  <%= render "form", zone: @zone %>
+  <%= turbo_frame_tag dom_id(@zone, :edit) do %>
+    <%= render "form", zone: @zone %>
+  <% end %>
 
 </div>

@@ -6,6 +6,8 @@
     <h1>Nueva zona</h1>
   </div>
 
-  <%= render "form", zone: @zone %>
+  <%= turbo_frame_tag @zone do %>
+    <%= render "form", zone: @zone %>
+  <% end %>
 
 </div>

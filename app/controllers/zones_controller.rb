@@ -2,7 +2,7 @@ class ZonesController < ApplicationController
   before_action :set_zone, only: [:show, :edit, :update, :destroy]
 
   def index
-    @zones = Zone.all
+    @zones = Zone.all.ordered
   end
 
   def show
@@ -15,7 +15,10 @@ class ZonesController < ApplicationController
   def create
     @zone = Zone.new(zone_params)
     if @zone.save
-      redirect_to zones_path, notice: "Nueva zona creada."
+      respond_to do |format|
+        format.html { redirect_to zones_path, notice: "Nueva zona creada." }
+        format.turbo_stream { flash.now[:notice] = "Nueva zona creada." }
+      end
     else
       render :new, status: :unprocessable_entity
     end
@@ -26,7 +29,10 @@ class ZonesController < ApplicationController
 
   def update
     if @zone.update(zone_params)
-      redirect_to zones_path, notice: "Zona actualizada."
+      respond_to do |format|
+        format.html { redirect_to zones_path, notice: "Zona actualizada." }
+        format.turbo_stream
+      end
     else
       render :edit, status: :unprocessable_entity
     end
@@ -34,7 +40,10 @@ class ZonesController < ApplicationController
 
   def destroy
     if @zone.destroy
-      redirect_to zones_path, notice: "Zona eliminada"
+      respond_to do |format|
+        format.html { redirect_to zones_path, notice: "Zona eliminada" }
+        format.turbo_stream
+      end
     end
   end
 
