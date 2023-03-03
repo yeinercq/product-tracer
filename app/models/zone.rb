@@ -10,6 +10,14 @@
 #
 class Zone < ApplicationRecord
   has_many :farms
-   
+
   validates :name, presence: true
+
+  before_create :generate_code
+
+  private
+
+  def generate_code
+    self.code = "NEW CODE XXX"
+  end
 end

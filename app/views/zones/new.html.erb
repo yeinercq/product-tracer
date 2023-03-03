@@ -1,0 +1,11 @@
+<div class="container mt-4">
+
+  <%= link_to sanitize("&larr; Volver a zonas"), zones_path %>
+
+  <div class="header">
+    <h1>Nueva zona</h1>
+  </div>
+
+  <%= render "form", zone: @zone %>
+
+</div>
