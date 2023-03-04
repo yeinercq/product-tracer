@@ -2,7 +2,11 @@
   <%= form_error_notification(zone) %>
 
   <%= f.input :name, input_html: { class: "form-control", autofocus: true } %>
-  <%= link_to "Cancelar", zones_path, class: "btn btn--light" %>
 
-  <%= f.submit class: "btn btn--secondary" %>
+  <%= link_to zones_path, class: "btn btn--light" do %>
+    <i class="bi bi-x-lg"></i> 
+  <% end %>
+  <%= button_tag type: 'submit', class: "btn btn--secondary" do %>
+    <i class="bi bi-check-lg"></i>
+  <% end %>
 <% end %>
