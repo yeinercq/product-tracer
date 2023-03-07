@@ -32,12 +32,22 @@ en:
     placeholders:
       zone:
         name: Nombre de la zona
+      farm:
+        name: Nombre de la finca
+        latitude: Latidud
+        longitude: Longitud
+        country: Pais
+        state: Departamento
+        city: Ciudad
+        address: Direccion
     labels:
       zone:
         name: Nombre
+      farm:
+        country: Pais
 
   helpers:
     sibmit:
       zone:
         create: Nueva zona
-        udpate: Editar zona 
+        udpate: Editar zona

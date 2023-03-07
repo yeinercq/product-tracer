@@ -7,10 +7,21 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 for i in 1..4
-  Zone.create!(
-    name: "Zone #{i}",
-    code: "abc-zone"
+  zone = Zone.create!(
+    name: "Zone #{i}"
+  )
+
+  Farm.create!(
+    zone: zone,
+    name: "Finca #{i}",
+    code: "CODE XXX",
+    latitude: "-75.9867",
+    longitude: "4.644467",
+    country: "Colombia",
+    state: "Huila",
+    city: "Iquira",
+    address: "Vereda #{i}"
   )
 end
 
-puts "Zones has been created."
+puts "Zones and farms has been created."

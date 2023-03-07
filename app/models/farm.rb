@@ -18,5 +18,7 @@
 class Farm < ApplicationRecord
   belongs_to :zone
 
-  validates :name, :latitude, :longitude, :country, :state, :city, :address, presence: true   
+  scope :ordered, -> { order(id: :desc) }
+  
+  validates :name, :latitude, :longitude, :country, :state, :city, :address, presence: true
 end

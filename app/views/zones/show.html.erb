@@ -1,0 +1,11 @@
+<div class="container mt-4">
+
+  <%= link_to sanitize("&larr; Volver a zonas"), zones_path %>
+
+  <div class="header">
+    <h1><%= @zone.name %></h1>
+    <%= link_to "Nueva finca", new_zone_farm_path(@zone), class: "btn btn--primary" %>
+  </div>
+
+  <%= render @farms, zone: @zone %>
+</div>

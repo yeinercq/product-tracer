@@ -1,0 +1,22 @@
+<%= simple_form_for [zone, farm], wrapper: :custom_vertical_form do |f| %>
+  <%= form_error_notification(farm) %>
+
+  <%= f.input :name, input_html: { class: "form-control", autofocus: true } %>
+  <%= f.input :latitude %>
+  <%= f.input :longitude %>
+  <div data-controller="country" data-country-url-value="<%= zone_farms_path %>" data-country-param-value="country">
+    <%= f.input :country, as: :select, collection: CS.countries.invert, prompt: "Selecciona un pais", input_html: { data: { action: "change->country#change" } } %>
+    <div data-controller="state" data-state-url-value="<%= zone_farms_path %>" data-state-param-value="state">
+      <%= f.input :state, as: :select, collection: [], prompt: "Selecciona un departamento", input_html: { data: { country_target: "stateSelect", action: "change->state#change" } } %>
+      <%= f.input :city, as: :select, collection: [], prompt: "Selecciona un municipio", input_html: { data: { state_target: "citySelect" } } %>
+    </div>
+  </div>
+  <%= f.input :address %>
+
+  <%= link_to zone_path(zone), class: "btn btn--light" do %>
+    <i class="bi bi-x-lg"></i>
+  <% end %>
+  <%= button_tag type: 'submit', class: "btn btn--secondary" do %>
+    <i class="bi bi-check-lg"></i>
+  <% end %>
+<% end %>

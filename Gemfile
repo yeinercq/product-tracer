@@ -48,6 +48,7 @@ gem "devise"
 gem "simple_form"
 gem 'i18n-tasks', '~> 1.0.12'
 gem 'rails-i18n'
+gem 'city-state'
 
 
 # Use Sass to process CSS

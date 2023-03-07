@@ -6,6 +6,7 @@ class ZonesController < ApplicationController
   end
 
   def show
+    @farms = @zone.farms.ordered
   end
 
   def new

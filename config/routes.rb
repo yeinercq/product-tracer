@@ -4,5 +4,12 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  resources :zones
+  resources :zones do
+    resources :farms, except: [:index] do
+      collection do
+        get :states
+        get :cities
+      end
+    end
+  end
 end

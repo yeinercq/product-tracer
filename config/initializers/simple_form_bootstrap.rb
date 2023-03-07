@@ -357,6 +357,21 @@ SimpleForm.setup do |config|
 
   # custom forms
   #
+  # vertical default_wrapper
+  config.wrappers :custom_vertical_form, class: 'mb-2' do |b|
+    b.use :html5
+    b.use :placeholder
+    b.optional :maxlength
+    b.optional :minlength
+    b.optional :pattern
+    b.optional :min_max
+    b.optional :readonly
+    b.use :label, class: 'visually-hidden'
+    b.use :input, class: 'form-control', error_class: 'is-invalid', valid_class: 'is-valid'
+    b.use :full_error, wrap_with: { class: 'invalid-feedback' }
+    b.use :hint, wrap_with: { class: 'form-text' }
+  end
+
   # horizontal default_wrapper
   config.wrappers :custom_horizontal_form, class: 'form--inline__group row mb-3' do |b|
     b.use :html5
