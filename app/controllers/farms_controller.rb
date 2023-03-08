@@ -1,5 +1,6 @@
 class FarmsController < ApplicationController
   before_action :set_zone
+  before_action :set_farm, only: [ :show, :edit, :update, :destroy ]
 
   def show
   end
@@ -21,9 +22,17 @@ class FarmsController < ApplicationController
   end
 
   def update
+    if @farm.update(farm_params)
+      redirect_to zone_path(@zone), notice: "Finca editada exitosamente."
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
+    if @farm.destroy
+      redirect_to zone_farms_path(@zone), notice: "Finca eliminada exitosamente."
+    end
   end
 
   def states
@@ -46,6 +55,10 @@ class FarmsController < ApplicationController
 
   def set_zone
     @zone = Zone.find(params[:zone_id])
+  end
+
+  def set_farm
+    @farm = @zone.farms.find(params[:id])
   end
 
   def farm_params

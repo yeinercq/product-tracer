@@ -45,6 +45,8 @@ en:
         name: Nombre
       farm:
         country: Pais
+        state: Departamento
+        city: Ciudad
 
   helpers:
     sibmit:
