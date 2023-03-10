@@ -31,7 +31,7 @@ class FarmsController < ApplicationController
 
   def destroy
     if @farm.destroy
-      redirect_to zone_farms_path(@zone), notice: "Finca eliminada exitosamente."
+      redirect_to zone_path(@zone), notice: "Finca eliminada exitosamente."
     end
   end
 

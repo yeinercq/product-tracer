@@ -1,2 +1,3 @@
 <%= turbo_stream.prepend "zones", @zone %>
 <%= turbo_stream.update Zone.new, "" %>
+<%= render_turbo_stream_flash_messages %>

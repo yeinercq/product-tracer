@@ -17,9 +17,10 @@ class ZonesController < ApplicationController
     @zone = Zone.new(zone_params)
     if @zone.save
       respond_to do |format|
-        format.html { redirect_to zones_path, notice: "Nueva zona creada." }
-        format.turbo_stream { flash.now[:notice] = "Nueva zona creada." }
+        format.html { redirect_to zones_path, notice: "Nueva zona creada exitosamente." }
+        format.turbo_stream { flash.now[:notice] = "Nueva zona creada exitosamente." }
       end
+      # redirect_to zones_path, notice: "Nueva zona creada."
     else
       render :new, status: :unprocessable_entity
     end
@@ -31,8 +32,8 @@ class ZonesController < ApplicationController
   def update
     if @zone.update(zone_params)
       respond_to do |format|
-        format.html { redirect_to zones_path, notice: "Zona actualizada." }
-        format.turbo_stream
+        format.html { redirect_to zones_path, notice: "Zona actualizada exitosamente." }
+        format.turbo_stream { flash.now[:notice] = "Zona actualizada exitosamente." }
       end
     else
       render :edit, status: :unprocessable_entity
@@ -42,8 +43,8 @@ class ZonesController < ApplicationController
   def destroy
     if @zone.destroy
       respond_to do |format|
-        format.html { redirect_to zones_path, notice: "Zona eliminada" }
-        format.turbo_stream
+        format.html { redirect_to zones_path, notice: "Zona eliminada exitosamente." }
+        format.turbo_stream { flash.now[:notice] = "Zona eliminada exitosamente." }
       end
     end
   end
