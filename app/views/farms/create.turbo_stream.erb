@@ -1,0 +1,4 @@
+<%= turbo_stream.prepend "farms" do %>
+  <%= render "farm", zone: @zone, farm: @farm %>
+<% end %>
+<%= render_turbo_stream_flash_messages %>

@@ -6,6 +6,10 @@
     <h1>Editar finca</h1>
   </div>
 
-  <%= render "form", zone: @zone, farm: @farm %>
+  <%= turbo_frame_tag "remote_modal" do %>
+    <%= render "layouts/modal_content", title: "Editar finca" do %>
+      <%= render "form", zone: @zone, farm: @farm %>
+    <% end %>
+  <% end %>
 
 </div>

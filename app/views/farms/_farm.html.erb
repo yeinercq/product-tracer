@@ -1,26 +1,28 @@
-<div class="farm">
-  <div class="farm__header">
-    <h2 class="farm__title">
-      <%= link_to farm.name, zone_farm_path(zone, farm) %>
-    </h2>
+<%= turbo_frame_tag farm do %>
+  <div class="farm">
+    <div class="farm__header">
+      <h2 class="farm__title">
+        <%= link_to farm.name, zone_farm_path(zone, farm) %>
+      </h2>
 
-    <div class="farm__actions">
-      <%= button_to zone_farm_path(zone, farm), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn--light" do %>
+      <div class="farm__actions">
+        <%= button_to zone_farm_path(zone, farm), method: :delete, data: { turbo_confirm: "Esta seguro?" }, class: "btn btn--light" do %>
         <i class="bi bi-trash"></i>
-      <% end %>
-      <%= link_to edit_zone_farm_path(zone, farm), class: "btn btn--light" do %>
+        <% end %>
+        <%= link_to edit_zone_farm_path(zone, farm), class: "btn btn--light", data: { turbo_frame: "remote_modal" } do %>
         <i class="bi bi-pencil-square"></i>
-      <% end %>
-    </div>
-  </div>
-  <div class="farm__body">
-    <div class="row">
-      <div class="col">
-        AQUI VA CADA LOTE DE LA FINCA CON LOS DATOS DEL MISMO
+        <% end %>
       </div>
     </div>
-    <div class="farm__footer">
-      <%= link_to "Nuevo lote", "#", class: "btn btn--primary" %>
+    <div class="farm__body">
+      <div class="row">
+        <div class="col">
+          AQUI VA CADA LOTE DE LA FINCA CON LOS DATOS DEL MISMO
+        </div>
+      </div>
+      <div class="farm__footer">
+        <%= link_to "Nuevo lote", "#", class: "btn btn--primary" %>
+      </div>
     </div>
   </div>
-</div>
+<% end %>

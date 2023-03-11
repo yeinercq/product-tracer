@@ -7,7 +7,7 @@
       </h2>
 
       <div class="zone__actions">
-        <%= button_to zone_path(zone), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn btn--light" do %>
+        <%= button_to zone_path(zone), method: :delete, data: { turbo_confirm: "Esta seguro?" }, class: "btn btn--light" do %>
           <i class="bi bi-trash"></i>
         <% end %>
         <%= link_to edit_zone_path(zone), class: "btn btn--light" do %>

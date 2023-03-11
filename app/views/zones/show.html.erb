@@ -6,6 +6,8 @@
     <h1><%= @zone.name %></h1>
     <%= link_to "Nueva finca", new_zone_farm_path(@zone), class: "btn btn--primary", data: { turbo_frame: "remote_modal" } %>
   </div>
-
-  <%= render @farms, zone: @zone %>
+  
+  <%= turbo_frame_tag "farms" do %>
+    <%= render @farms, zone: @zone %>
+  <% end %>
 </div>

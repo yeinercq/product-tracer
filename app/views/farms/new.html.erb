@@ -7,10 +7,9 @@
   </div>
 
   <%= turbo_frame_tag "remote_modal" do %>
-    <h1 class="modal-header">Nueva finca</h1>
-    <div class="modal-body">
+    <%= render "layouts/modal_content", title: "Nueva finca" do %>
       <%= render "form", zone: @zone, farm: @farm %>
-    </div>
+    <% end %>
   <% end %>
 
 </div>

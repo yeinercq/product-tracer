@@ -12,7 +12,10 @@ class FarmsController < ApplicationController
   def create
     @farm = @zone.farms.build(farm_params)
     if @farm.save
-      redirect_to zone_path(@zone), notice: "Finca creada exitosamente."
+      respond_to do |format|
+        format.html { redirect_to zone_path(@zone), notice: "Finca creada exitosamente." }
+        format.turbo_stream { flash.now[:notice] = "Finca creada exitosamente." }
+      end
     else
       render :new, status: :unprocessable_entity
     end
@@ -23,7 +26,10 @@ class FarmsController < ApplicationController
 
   def update
     if @farm.update(farm_params)
-      redirect_to zone_path(@zone), notice: "Finca editada exitosamente."
+      respond_to do |format|
+        format.html { redirect_to zone_path(@zone), notice: "Finca editada exitosamente." }
+        format.turbo_stream { flash.now[:notice] = "Finca editada exitosamente." }
+      end
     else
       render :edit, status: :unprocessable_entity
     end
@@ -31,7 +37,10 @@ class FarmsController < ApplicationController
 
   def destroy
     if @farm.destroy
-      redirect_to zone_path(@zone), notice: "Finca eliminada exitosamente."
+      respond_to do |format|
+        format.html { redirect_to zone_path(@zone), notice: "Finca eliminada exitosamente." }
+        format.turbo_stream { flash.now[:notice] = "Finca eliminada exitosamente." }
+      end
     end
   end
 
