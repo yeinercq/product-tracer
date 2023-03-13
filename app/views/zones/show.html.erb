@@ -8,6 +8,7 @@
   </div>
 
   <%= turbo_frame_tag "farms" do %>
+    <%= render "farms/empty_state", zone: @zone %>
     <%= render @farms, zone: @zone %>
   <% end %>
 </div>

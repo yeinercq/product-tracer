@@ -1,0 +1,6 @@
+<div class="empty-state empty-state--only-child">
+  <p class="empty-state__text">
+    Aun no tienes una finca creada!
+  </p>
+  <%= link_to "Agregar finca", new_zone_farm_path(zone), class: "btn btn--primary", data: { turbo_frame: "remote_modal" } %>
+</div>
