@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<div class="container">
 
   <%= link_to sanitize("&larr; Volver a zonas"), zones_path %>
 
@@ -6,7 +6,7 @@
     <h1><%= @zone.name %></h1>
     <%= link_to "Nueva finca", new_zone_farm_path(@zone), class: "btn btn--primary", data: { turbo_frame: "remote_modal" } %>
   </div>
-  
+
   <%= turbo_frame_tag "farms" do %>
     <%= render @farms, zone: @zone %>
   <% end %>

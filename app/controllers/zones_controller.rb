@@ -2,7 +2,7 @@ class ZonesController < ApplicationController
   before_action :set_zone, only: [:show, :edit, :update, :destroy]
 
   def index
-    @zones = Zone.all.ordered
+    @zones = current_company.zones.ordered
   end
 
   def show
@@ -10,11 +10,11 @@ class ZonesController < ApplicationController
   end
 
   def new
-    @zone = Zone.new
+    @zone = current_company.zones.build
   end
 
   def create
-    @zone = Zone.new(zone_params)
+    @zone = current_company.zones.build(zone_params)
     if @zone.save
       respond_to do |format|
         format.html { redirect_to zones_path, notice: "Nueva zona creada exitosamente." }
@@ -52,7 +52,7 @@ class ZonesController < ApplicationController
   private
 
   def set_zone
-    @zone = Zone.find(params[:id])
+    @zone = current_company.zones.find(params[:id])
   end
 
   def zone_params

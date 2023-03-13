@@ -63,7 +63,7 @@ class FarmsController < ApplicationController
   private
 
   def set_zone
-    @zone = Zone.find(params[:zone_id])
+    @zone = current_company.zones.find(params[:zone_id])
   end
 
   def set_farm
