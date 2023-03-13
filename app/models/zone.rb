@@ -11,7 +11,7 @@
 class Zone < ApplicationRecord
   belongs_to :company
 
-  has_many :farms
+  has_many :farms, dependent: :destroy
 
   scope :ordered, -> { order(id: :desc) }
 

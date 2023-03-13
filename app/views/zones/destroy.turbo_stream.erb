@@ -1,2 +1,8 @@
 <%= turbo_stream.remove @zone %>
 <%= render_turbo_stream_flash_messages %>
+
+<% unless current_company.zones.exists? %>
+  <%= turbo_stream.update Zone.new do %>
+    <%= render "zones/empty_state" %>
+  <% end %>
+<% end %>
