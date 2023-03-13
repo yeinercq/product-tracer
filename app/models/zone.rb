@@ -20,7 +20,7 @@ class Zone < ApplicationRecord
   before_create :generate_code
 
   # after_create_commit -> { broadcast_prepend_to "zones", partial: "zones/zone", locals: { zone: self }, target: "zones" }
-  broadcasts_to ->(zone) { "zones" }, inserts_by: :prepend
+  broadcasts_to ->(zone) { [zone.company, "zones"] }, inserts_by: :prepend
 
   private
 
