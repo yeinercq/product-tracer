@@ -1,0 +1,10 @@
+<main class="container">
+  <h1>Cafe buen cafe</h1>
+  <p>Seguridad y calidad en cada taza de cafe</p>
+
+  <% if user_signed_in? %>
+    <%= link_to "Ver zonas", zones_path, class: "btn btn--dark" %>
+  <% else %>
+    <%= link_to "Sign in", new_user_session_path, class: "btn btn--dark" %>
+  <% end %>
+</main>
