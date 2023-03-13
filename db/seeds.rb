@@ -6,6 +6,11 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+carcafe = Company.create!(name: "Carcafe")
+lavazza = Company.create!(name: "Lavazza")
+
+puts "Companies has been created."
+
 for i in 1..4
   zone = Zone.create!(
     name: "Zone #{i}"
