@@ -9,6 +9,8 @@
 #  updated_at :datetime         not null
 #
 class Zone < ApplicationRecord
+  belongs_to :company
+
   has_many :farms
 
   scope :ordered, -> { order(id: :desc) }

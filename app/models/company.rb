@@ -8,5 +8,8 @@
 #  updated_at :datetime         not null
 #
 class Company < ApplicationRecord
+  has_many :users, dependent: :destroy
+  has_many :zones, dependent: :destroy
+
   validates :name, presence: true
 end
