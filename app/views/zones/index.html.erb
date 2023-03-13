@@ -5,12 +5,10 @@
     <%= link_to "Nueva zona", new_zone_path, class: "btn btn--primary", data: { turbo_frame: dom_id(Zone.new) } %>
   </div>
 
-  <%= turbo_frame_tag Zone.new do %>
-    <% if @zones.none? %>
-      <%= render "zones/empty_state" %>
-    <% end %>
-  <% end %>
+  <%= turbo_frame_tag Zone.new %>
+  
   <%= turbo_frame_tag 'zones' do %>
+    <%= render "zones/empty_state" %>
     <%= render @zones %>
   <% end %>
 </div>

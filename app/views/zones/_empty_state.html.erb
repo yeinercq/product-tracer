@@ -1,6 +1,6 @@
-<div class="empty-state">
+<div class="empty-state empty-state--only-child">
   <p class="empty-state__text">
-    Aun no tienes un zona creada!
+    Aun no tienes una zona creada!
   </p>
-  <%= link_to "Agregar Zona", new_zone_path, class: "btn btn--primary" %>
+  <%= link_to "Agregar Zona", new_zone_path, class: "btn btn--primary", data: { turbo_frame: dom_id(Zone.new) } %>
 </div>
